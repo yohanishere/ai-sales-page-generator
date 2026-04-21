@@ -13,7 +13,7 @@
         <div class="grid md:grid-cols-2 gap-6">
 
             <div>
-                <h2 class="text-xl font-semibold mb-2">Tentang Produk</h2>
+                <h2 class="text-xl font-semibold mb-2">About Product</h2>
                 <p class="text-gray-300">{{ $result['description'] }}</p>
             </div>
 
@@ -24,7 +24,7 @@
         </div>
 
         <div class="mt-10">
-            <h2 class="text-2xl font-bold mb-4">Manfaat</h2>
+            <h2 class="text-2xl font-bold mb-4">Benefits</h2>
             <ul class="space-y-2">
                 @foreach($result['benefits'] ?? [] as $item)
                     <li>✔ {{ $item }}</li>

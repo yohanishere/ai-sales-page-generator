@@ -16,7 +16,7 @@
         </div>
 
         <div class="mb-6 bg-white p-5 rounded-2xl shadow-sm">
-            <h2 class="text-xl font-semibold mb-3 text-blue-500">✨ Manfaat</h2>
+            <h2 class="text-xl font-semibold mb-3 text-blue-500">✨ Benefits</h2>
             <ul class="space-y-2">
                 @foreach($result['benefits'] ?? [] as $item)
                     <li>👉 {{ $item }}</li>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="mb-6 bg-white p-5 rounded-2xl shadow-sm">
-            <h2 class="text-xl font-semibold mb-3 text-indigo-500">🎯 Fitur</h2>
+            <h2 class="text-xl font-semibold mb-3 text-indigo-500">🎯 Feature</h2>
             <ul class="space-y-2">
                 @foreach($result['features'] ?? [] as $item)
                     <li>✔ {{ $item }}</li>

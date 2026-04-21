@@ -14,14 +14,14 @@
             {{ $result['description'] }}
         </p>
 
-        <h2 class="text-2xl font-semibold mb-3">Manfaat</h2>
+        <h2 class="text-2xl font-semibold mb-3">Benefits</h2>
         <ul class="list-disc pl-5 mb-6">
             @foreach($result['benefits'] ?? [] as $item)
                 <li>{{ $item }}</li>
             @endforeach
         </ul>
 
-        <h2 class="text-2xl font-semibold mb-3">Fitur</h2>
+        <h2 class="text-2xl font-semibold mb-3">Feature</h2>
         <ul class="list-disc pl-5 mb-6">
             @foreach($result['features'] ?? [] as $item)
                 <li>{{ $item }}</li>
