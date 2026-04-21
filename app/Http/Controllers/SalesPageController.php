@@ -51,30 +51,33 @@ class SalesPageController extends Controller
             $details .= "$key: $value\n";
         }
 
-        $prompt = "Anda adalah copywriter profesional.
+        $prompt = "You are a professional copywriter.
 
-        Buat sales page dalam format JSON berikut:
+            Create a high-converting sales page in the following JSON format:
 
-        {
-            \"headline\": \"...\",
-            \"subheadline\": \"...\",
-            \"description\": \"...\",
-            \"benefits\": [\"...\"],
-            \"features\": [\"...\"],
-            \"social_proof\": \"...\",
-            \"price_display\": \"...\",
-            \"cta\": \"...\"
-        }
+            {
+                \"headline\": \"...\",
+                \"subheadline\": \"...\",
+                \"description\": \"...\",
+                \"benefits\": [\"...\"],
+                \"features\": [\"...\"],
+                \"social_proof\": \"...\",
+                \"price_display\": \"...\",
+                \"cta\": \"...\"
+            }
 
-        Gunakan gaya bahasa:
-        - persuasif
-        - emosional
-        - fokus konversi
+            Use the following writing style:
+            - persuasive
+            - emotional
+            - conversion-focused
 
-        JANGAN output apapun selain JSON.
+            IMPORTANT:
+            - Output ONLY valid JSON
+            - Do NOT include any explanation, text, or formatting outside the JSON
+            - Ensure the JSON is properly formatted and parsable
 
-        Data produk:
-        \n" . $details;
+            Product details:
+            \n" . $details;
 
         $apiKey = env('OPENROUTER_API_KEY');
 
@@ -100,7 +103,7 @@ class SalesPageController extends Controller
 
         if (!$result) {
             $result = [
-                "headline" => "Gagal generate",
+                "headline" => "Failed to generate",
                 "subheadline" => "",
                 "description" => $resultText,
                 "benefits" => [],
@@ -125,7 +128,7 @@ class SalesPageController extends Controller
         $input = json_decode($request->input, true);
 
         if (!$result) {
-            dd('JSON gagal parse', $request->result);
+            dd('Failed to parse JSON', $request->result);
         }
 
         SalesPage::create([
@@ -148,7 +151,7 @@ class SalesPageController extends Controller
             'input_data' => $input
         ]);
 
-        return redirect('/')->with('success', 'Berhasil disimpan!');
+        return redirect('/')->with('success', 'Saved successfully!');
     }
 
     public function index()
@@ -187,7 +190,6 @@ class SalesPageController extends Controller
     public function edit($id)
     {
         $page = SalesPage::findOrFail($id);
-        //dd($page->input_data);
 
         return view('create', [
             'input' => $page->input_data,
@@ -237,7 +239,7 @@ class SalesPageController extends Controller
             'input_data' => $data
         ]);
 
-        return redirect('/')->with('success', 'Berhasil diupdate!');
+        return redirect('/')->with('success', 'Updated successfully!');
     }
 
     public function destroy($id)
@@ -246,7 +248,7 @@ class SalesPageController extends Controller
 
         $page->delete();
 
-        return redirect('/')->with('success', 'Data berhasil dihapus');
+        return redirect('/')->with('success', 'Data deleted successfully!');
     }
 
     public function export($id)

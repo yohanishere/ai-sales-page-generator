@@ -89,7 +89,7 @@
                     </div>
                 @empty
                     <div class="col-span-2 text-center text-gray-500">
-                        Belum ada sales page
+                        No sales page yet
                     </div>
                 @endforelse
 
