@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Detail Sales Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @include('components.head')
 </head>
 
     @if($style == 'dark')

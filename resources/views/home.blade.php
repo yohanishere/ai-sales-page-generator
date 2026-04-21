@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home</title>
+    @include('components.head')
 </head>
 <body class="bg-gray-100">
 

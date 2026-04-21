@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Generate</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @include('components.head')
 </head>
 <body class="bg-gray-100">
 
