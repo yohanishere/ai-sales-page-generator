@@ -44,26 +44,26 @@
         <div class="flex justify-center gap-4 mt-8">
 
             @if(isset($input))
-                <form method="POST" action="{{ isset($id) ? '/edit/'.$id : '/save' }}">
+                <form method="POST" action="{{ (isset($id) && $id > 0) ? '/edit/'.$id : '/save' }}">
                 @csrf
                     <input type="hidden" name="result" value='@json($result)'>
                     <input type="hidden" name="input" value='@json($input)'>
                     <input type="hidden" name="style" value="{{ $style }}">
-                    @if(isset($id))
+                    @if((isset($id) && $id > 0))
                         <input type="hidden" name="id" value="{{ $id }}">
                     @endif
 
                     <button class="bg-green-500 text-black px-6 py-3 rounded-lg hover:bg-green-400 shadow-lg">
-                        {{ isset($id) ? 'Update' : 'Save' }}
+                        {{ (isset($id) && $id > 0) ? 'Update' : 'Save' }}
                     </button>
                 </form>
 
-                <a href="{{ '/generate?' . http_build_query(array_merge($input ?? [],['style' => $style],isset($id) ? ['id' => $id] : [])) }}"
+                <a href="{{ '/generate?' . http_build_query(array_merge($input ?? [],['style' => $style],(isset($id) && $id > 0) ? ['id' => $id] : [])) }}"
                 class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 shadow-lg">
                     Back
                 </a>
 
-            @elseif(isset($id))
+            @elseif((isset($id) && $id > 0))
                 <a href="/edit/{{ $id }}"
                 class="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 border border-gray-500 transition">
                     Edit

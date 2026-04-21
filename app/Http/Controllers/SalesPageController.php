@@ -14,7 +14,7 @@ class SalesPageController extends Controller
         return view('create', [
             'input' => $request->all(),
             'style' => $request->style ?? 'default',
-            'page_id'=> $request->id ?? null,
+            'page_id'=> $request->id ?? '',
             'action' => '/generate',
             'method' => 'POST',
             'button' => 'Generate',
