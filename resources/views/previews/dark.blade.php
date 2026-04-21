@@ -13,7 +13,7 @@
         <div class="grid md:grid-cols-2 gap-6">
 
             <div>
-                <h2 class="text-xl font-semibold mb-2">About Product</h2>
+                <h2 class="text-xl font-bold mb-2">About Product</h2>
                 <p class="text-gray-300">{{ $result['description'] }}</p>
             </div>
 
